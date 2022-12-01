@@ -1,4 +1,4 @@
-# A demo to demonstrate gcc
+# An example to demonstrate gcc
 
 directory:
 
