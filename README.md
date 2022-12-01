@@ -18,6 +18,12 @@ build:
 make
 ```
 
+clean build:
+
+```shell
+make clean
+```
+
 run:
 
 ```shell
