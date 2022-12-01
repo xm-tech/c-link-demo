@@ -14,7 +14,7 @@ $(object_file): $(addprefix lib-src/,$(lib_src))
 	# -fPIC : Generate position-independent code if possible
 	#  $^ : 依赖文件
 	#  $@ : 目标文件
-	#  -shared : 指定生成动态连接库
+	#  -shared : 指定生成动态链接库
 	#  -Wall : 生成调试信息
 	#  -O2 : 指定编译优化等级为 O2
 	gcc -g -O2 -Wall -fPIC -shared $^ -o $@
