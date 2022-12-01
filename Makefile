@@ -14,6 +14,8 @@ $(lib_path)/libmath.so: $(addprefix lib-src/,$(lib_src))
 	#  $^ : 依赖文件
 	#  $@ : 目标文件
 	#  -shared : 指定生成动态连接库
+	#  -Wall : 生成调试信息
+	#  -O2 : 指定编译优化等级为 O2
 	gcc -g -O2 -Wall -fPIC -shared $^ -o $@
 
 run:
@@ -21,4 +23,4 @@ run:
 
 .PHONY : clean
 clean :
-	-rm -f main && rm -f lib/libmath.so
+	-rm -f main && rm -f $(lib_path)/libmath.so && rm -rf $(lib_path)/*.dSYM
