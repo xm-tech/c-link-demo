@@ -1,6 +1,8 @@
-# An example to demonstrate gcc
+An example to demonstrate gcc
+=============================
 
-directory:
+directory
+---------
 
 ```text
 include -- the head files
@@ -12,19 +14,22 @@ lib-src -- the dependency c source code path
 src -- the main logic c source code
 ```
 
-build:
+build
+-----
 
 ```shell
 make
 ```
 
-clean build:
+clean build
+-----------
 
 ```shell
 make clean
 ```
 
-run:
+run
+---
 
 ```shell
 make run
