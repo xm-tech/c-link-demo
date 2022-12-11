@@ -14,7 +14,6 @@ MYCFLAGS = -std=c99
 CFLAGS = -g -O2 -Wall $(MYCFLAGS) -fPIC -shared
 
 
-
 build: $(OBJECT_FILE)
 	# -I : 指定头文件的位置
 	# -L : 指定链接库的位置
