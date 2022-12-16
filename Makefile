@@ -29,6 +29,16 @@ $(OBJECT_FILE): $(addprefix lib-src/,$(LIB_SRC))
 run:
 	./main
 
+# echo the variables
+echo:
+	@echo "LIB_PATH=$(LIB_PATH)"
+	@echo "LIB_SRC=$(LIB_SRC)"
+	@echo "INCLUDE_PATH=$(INCLUDE_PATH)"
+	@echo "OBJECT_FILE=$(OBJECT_FILE)"
+	@echo "CC=$(CC)"
+	@echo "MYCFLAGS=$(MYCFLAGS)"
+	@echo "CFLAGS=$(CFLAGS)"
+
 .PHONY : clean
 clean :
 	-rm -f main && rm -f $(OBJECT_FILE) && rm -rf $(LIB_PATH)/*.dSYM
