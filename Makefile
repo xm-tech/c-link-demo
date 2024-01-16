@@ -1,4 +1,4 @@
-LIB_PATH ?= lib
+LIB_PATH = lib
 LIB_SRC = add.c div.c mul.c sub.c
 INCLUDE_PATH = include
 OBJECT_FILE=$(LIB_PATH)/libmath.so
@@ -13,12 +13,18 @@ MYCFLAGS = -std=c99
 # -shared : 指定生成动态链接库
 CFLAGS = -g -O2 -Wall $(MYCFLAGS) -fPIC -shared
 
+all: create_lib_path build
+
+.PHONY : create_lib_path
+create_lib_path:
+	- mkdir -p $(LIB_PATH)
 
 build: $(OBJECT_FILE)
 	# -I : 指定头文件的位置
 	# -L : 指定链接库的位置
 	# -l : 指定链接库的名称, will find: libmath.so
 	$(CC) src/main.c -I $(INCLUDE_PATH) -L $(LIB_PATH) -l math -o main
+
 
 # addprefix : 添加前缀函数
 $(OBJECT_FILE): $(addprefix lib-src/,$(LIB_SRC))
