@@ -19,21 +19,25 @@ all: create_lib_path build
 create_lib_path:
 	- mkdir -p $(LIB_PATH)
 
+TARGET = main
+
+.PHONY : build
 build: $(OBJECT_FILE)
 	# -I : 指定头文件的位置
 	# -L : 指定链接库的位置
 	# -l : 指定链接库的名称, will find: libmath.so
-	$(CC) src/main.c -I $(INCLUDE_PATH) -L $(LIB_PATH) -l math -o main
+	$(CC) src/main.c -I $(INCLUDE_PATH) -L $(LIB_PATH) -l math -o $(TARGET)
 
 
 # addprefix : 添加前缀函数
+# dynamic link to libmath.so
 $(OBJECT_FILE): $(addprefix lib-src/,$(LIB_SRC))
 	# $^ : 依赖文件
 	# $@ : 目标文件
 	$(CC) $(CFLAGS) $^ -o $@
 
 run:
-	./main
+	./$(TARGET)
 
 # echo the variables
 echo:
